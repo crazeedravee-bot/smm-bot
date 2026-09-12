@@ -16,7 +16,7 @@ def run_server():
     web_app.run(host="0.0.0.0", port=port)
 
 # 2. Hardcoded Credentials
-BOT_TOKEN = "8619035406:AAHwRNkRdnYXZCMCN6dmOzPhpUPT1HQsmWw"
+BOT_TOKEN = "8619035406:AAHwRNkRdnYXZCMCN6dmOzPhpUPTlHQsmWw"
 API_URL = "https://fansmm.in/api/v2"
 API_KEY = "77d47d9768af9aeca92e43a4be718b66"
 
