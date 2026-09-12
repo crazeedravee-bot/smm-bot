@@ -18,7 +18,7 @@ def run_server():
 # 2. Hardcoded Credentials
 BOT_TOKEN = "8619035406:AAHwRNkRdnYXZCMCN6dmOzPhpUPTlHQsmWw"
 API_URL = "https://fansmm.in/api/v2"
-API_KEY = "77d47d9768af9aeca92e43a4be718b66"
+API_KEY = "64ac6199d06895e0f0107cd3caa326e6"
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
