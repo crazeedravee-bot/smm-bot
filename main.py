@@ -4,7 +4,7 @@ import requests
 from flask import Flask
 import telebot
 
-# Background web server to satisfy Render's free port requirement
+# 1. Background web server to keep Render happy
 web_app = Flask(__name__)
 
 @web_app.route('/')
@@ -15,10 +15,10 @@ def run_server():
     port = int(os.environ.get("PORT", 8080))
     web_app.run(host="0.0.0.0", port=port)
 
-# API Keys from Render Environment Variables
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-API_URL = os.getenv("PROVIDER_API_URL")
-API_KEY = os.getenv("PROVIDER_API_KEY")
+# 2. Hardcoded Credentials
+BOT_TOKEN = "8619035406:AAHwRNkRdnYXZCMCN6dmOzPhpUPT1HQsmWw"
+API_URL = "https://fansmm.in/api/v2"
+API_KEY = "77d47d9768af9aeca92e43a4be718b66"
 
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -54,11 +54,11 @@ def place_order(message):
         if "order" in res:
             bot.reply_to(message, f"✅ Order Placed Successfully!\nOrder ID: {res['order']}")
         else:
-            bot.reply_to(message, f"⚠️ Provider Message: {res.get('error', 'Check your balance or parameters.')}")
+            bot.reply_to(message, f"⚠️ Provider Message: {res.get('error', 'Check balance or link')}")
     except Exception:
-        bot.reply_to(message, "❌ Error connecting to the wholesale server.")
+        bot.reply_to(message, "❌ Error connecting to wholesale server.")
 
 if __name__ == "__main__":
     threading.Thread(target=run_server, daemon=True).start()
-    bot.infinity_polling(skip_pending=True)
+    bot.infinity_polling()
     
